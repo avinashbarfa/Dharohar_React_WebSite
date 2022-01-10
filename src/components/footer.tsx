@@ -1,28 +1,37 @@
 import styled from 'styled-components';
-import {Col, Container, Row} from "react-bootstrap";
+import {Box, Container, Grid, Stack} from "@mui/material";
 
 const Footer = () => {
 
     return (
-        <FooterContainer fluid>
-            <Row>
-                <Col md>
-                    <h3>About Company</h3>
-                    <hr />
-                     <span>
+        <FooterContainer style={{
+            maxWidth: '100vw'
+        }}>
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <section>
+                        <h3>About Company</h3>
+                        <hr />
+                        <span>
                          Dharohar was established in 1990 as a provider of integrated print solutions to print buyers across all domains & corporations.With the strong hold to our company philosophy, highest satisfaction.
                      </span>
-                </Col>
-                <Col md>
-                    <h3>Services</h3>
-                    <hr />
-                    <span>List of services</span>
-                </Col>
-                <Col md>
-                    <h3>Contact Us</h3>
-                    <span>Text</span>
-                </Col>
-            </Row>
+                    </section>
+                </Grid>
+                <Grid item xs={3}>
+                    <section>
+                        <h3>Services</h3>
+                        <hr />
+                        <span>List of services</span>
+                    </section>
+                </Grid>
+                <Grid item xs={3}>
+                    <section>
+                        <h3>Contact Us</h3>
+                        <hr />
+                        <span>Text</span>
+                    </section>
+                </Grid>
+            </Grid>
         </FooterContainer>
     );
 }
@@ -35,6 +44,9 @@ const FooterContainer = styled(Container)`
   padding: 40px 40px 40px 18px;
 `;
 
-
+const Columns = styled(Box)`
+  display: flex;
+  flex-direction: row;
+`;
 
 export default Footer;
