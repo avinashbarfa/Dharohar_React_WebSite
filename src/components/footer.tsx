@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Box, Container, Grid, Stack} from "@mui/material";
+import {Box, Container, Grid} from "@mui/material";
 
 const Footer = () => {
 

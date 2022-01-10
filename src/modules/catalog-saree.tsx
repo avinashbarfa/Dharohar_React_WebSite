@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {chiffonGorgetteItemData, khathanItemData, reshamMushriseItemData} from "../assest";
 import {CustomImageList, SimpleMap} from "../components";
 import {useEffect, useState} from "react";
-import {ImageListProps, ItemDataProps} from "../components/customImageList";
+import { ItemDataProps} from "../components/customImageList";
 
 const catalogNameMap: SimpleMap<string> = {
     khathan: 'Khathan Silk Saree',

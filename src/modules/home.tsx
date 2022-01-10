@@ -4,7 +4,6 @@ import AboutCompany from "../components/aboutCompany";
 const Home = () => {
     return (
         <>
-            {/*<Slider/>*/}
             <FeaturedSection/>
             <AboutCompany/>
         </>
