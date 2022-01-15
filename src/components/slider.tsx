@@ -22,7 +22,7 @@ const Slider = () => {
         <StyledCarousel animation={'slide'} interval={4000}>
             {sliderData.map((item:any) =>
                 <Paper>
-                    <img src={item.src} alt={`slider-image-${item.id}`}/>
+                    <img src={item.src} alt={`slider-${item.id}`}/>
                 </Paper>
             )}
         </StyledCarousel>
