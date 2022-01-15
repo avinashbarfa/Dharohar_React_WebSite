@@ -1,4 +1,4 @@
-import {Box, Container, Typography} from "@mui/material";
+import {Box, Container, Typography, useMediaQuery} from "@mui/material";
 import styled from "styled-components";
 import {chiffonGorgetteItemData, khathanItemData, reshamMushriseItemData} from "../assest";
 import {CustomImageList, SimpleMap} from "../components";
@@ -27,6 +27,7 @@ const CatalogSaree = ({catalogName, priceRange}: CatalogSareeProps) => {
 
     const [renderCatalogName, setCatalogName] = useState<string>('null');
     const [renderItemData, setRenderItemData] = useState<ItemDataProps[]>([]);
+    const isMobile = useMediaQuery('(max-width:800px)');
 
 
     useEffect(() => {
@@ -38,7 +39,7 @@ const CatalogSaree = ({catalogName, priceRange}: CatalogSareeProps) => {
     return (
         <SareeCatalogSection>
             <CatalogHeader>
-                <StyledTypography variant="h2">
+                <StyledTypography variant={isMobile ? 'h6': 'h2'}>
                     {renderCatalogName} Catalog
                 </StyledTypography>
                 <StyledTypography variant="body1">

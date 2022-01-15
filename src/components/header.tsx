@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
 import { Link } from "react-router-dom";
 import {
-    AppBar,
+    AppBar, Button,
     IconButton,
     Menu,
     MenuItem,
@@ -26,16 +26,72 @@ const HideOnScroll = (props: any) => {
 }
 
 const Header = (props: any) => {
-    const [anchor, setAnchor] = React.useState(null);
+    const [anchor, setAnchor] = useState(null);
     const open = Boolean(anchor);
     const isMobile = useMediaQuery('(max-width:800px)');
     const handleMenu = (event : any) => {
         setAnchor(event.currentTarget);
     };
+    const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null);
+    const open2 = Boolean(anchorEl2);
+    const handleClick = (event: any) => {
+        setAnchorEl2(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl2(null);
+    };
+
+    const textileMenu = (
+        <>
+            <Typography
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                style={{color: '#ffffff', cursor: "pointer", textAlign: 'center'}}
+            >
+                Textiles
+            </Typography>
+            <StyledMenu
+                id="basic-menu"
+                anchorEl={anchorEl2}
+                open={open2}
+                onClose={handleClose}
+                MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                }}
+            >
+                <MenuItem>
+                    <StyledLink
+                        onClick={() => { setAnchor(null); setAnchorEl2(null); }}
+                        to="/chiffon-gorgette-saree"
+                    >
+                        Chiffon Gorgette Sarees
+                    </StyledLink>
+                </MenuItem>
+                <MenuItem>
+                    <StyledLink
+                        onClick={() => { setAnchor(null); setAnchorEl2(null); }}
+                        to="/khathan-silk-saree"
+                    >
+                        Khathan Silk Saree
+                    </StyledLink>
+                </MenuItem>
+                <MenuItem>
+                    <StyledLink
+                        onClick={() => { setAnchor(null); setAnchorEl2(null); }}
+                        to="/resham-mushrise-sarees"
+                    >
+                        Resham Mushrise Sarees
+                    </StyledLink>
+                </MenuItem>
+            </StyledMenu>
+        </>
+    );
+
     return (
         <RootContainer>
             <HideOnScroll {...props}>
-                    <AppBar style={{ backgroundColor: "#313d53" }}>
+                <AppBar style={{ backgroundColor: "#313d53" }}>
                         <StyledToolbar>
                             <Typography
                                 variant="h5"
@@ -51,9 +107,9 @@ const Header = (props: any) => {
                                         aria-label="menu"
                                         onClick={handleMenu}
                                     >
-                                        <MenuIcon />
+                                        <MenuIcon style={{ color: '#ffffff' }}/>
                                     </IconButton>
-                                    <Menu
+                                    <StyledMenu
                                         id="menu-appbar"
                                         anchorEl={anchor}
                                         anchorOrigin={{
@@ -70,54 +126,21 @@ const Header = (props: any) => {
                                             onClick={() => setAnchor(null)}
                                             component={Link}
                                             to="/"
+                                            style={{color: '#ffffff', cursor: "pointer", textAlign: 'center', textDecoration: 'none' }}
                                         >
-                                            <Typography variant="h6"> Home </Typography>
+                                            Home
                                         </MenuItem>
-                                        <MenuItem
-                                            onClick={() => setAnchor(null)}
-                                            component={Link}
-                                            to="/chiffon-gorgette-saree"
-                                        >
-                                            <Typography variant="h6"> Chiffon Gorgette Sarees </Typography>
-                                        </MenuItem>
-                                        <MenuItem
-                                            onClick={() => setAnchor(null)}
-                                            component={Link}
-                                            to="/khathan-silk-saree"
-                                        >
-                                            <Typography variant="h6"> Khathan Silk Saree </Typography>
-                                        </MenuItem>
-                                        <MenuItem
-                                            onClick={() => setAnchor(null)}
-                                            component={Link}
-                                            to="/resham-mushrise-sarees"
-                                        >
-                                            <Typography variant="h6"> Resham Mushrise Sarees </Typography>
-                                        </MenuItem>
-                                    </Menu>
+                                        {textileMenu}
+                                    </StyledMenu>
                                 </>
                             ) : (
-                                <div style={{ marginRight: "2rem" }}>
+                                <div style={{ marginRight: "2rem", display: "flex" }}>
                                     <StyledLink
                                         to="/"
                                     >
                                         Home
                                     </StyledLink>
-                                    <StyledLink
-                                        to="/chiffon-gorgette-saree"
-                                    >
-                                        Chiffon Gorgette Sarees
-                                    </StyledLink>
-                                    <StyledLink
-                                        to="/khathan-silk-saree"
-                                    >
-                                        Khathan Silk Saree
-                                    </StyledLink>
-                                    <StyledLink
-                                        to="/resham-mushrise-sarees"
-                                    >
-                                        Resham Mushrise Sarees
-                                    </StyledLink>
+                                    {textileMenu}
                                 </div>
                             )}
                         </StyledToolbar>
@@ -148,4 +171,8 @@ const StyledLink = styled(Link)`
   :hover {
     color: #ffffff;
   }
-`
+`;
+const StyledMenu = styled(Menu)`
+  .MuiMenu-paper {
+    background-color: #313d53;
+  }`;

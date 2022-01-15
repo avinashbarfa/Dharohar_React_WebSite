@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import {Box, Container, Grid} from "@mui/material";
+import {Box, Container, Grid, useMediaQuery} from "@mui/material";
 
 const Footer = () => {
-
+    const isMobile = useMediaQuery('(max-width:800px)');
     return (
         <FooterContainer style={{
             maxWidth: '100vw'
         }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} direction={isMobile ? 'column' : 'row' }>
                 <Grid item xs={6}>
                     <section>
                         <h3>About Company</h3>

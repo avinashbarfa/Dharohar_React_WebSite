@@ -1,4 +1,4 @@
-import {ImageList, ImageListItem} from "@mui/material";
+import {ImageList, ImageListItem, useMediaQuery} from "@mui/material";
 
 export interface ItemDataProps {
     img: string;
@@ -9,8 +9,9 @@ export interface ImageListProps {
 }
 
 const CustomImageList = ({itemData}: ImageListProps) => {
+    const isMobile = useMediaQuery('(max-width:800px)');
     return (
-        <ImageList variant="woven" cols={4} gap={24} >
+        <ImageList variant="woven" cols={isMobile ? 1 : 4 } gap={24} >
             {itemData?.map((item: ItemDataProps) => (
                 <ImageListItem key={item.img}>
                     <img
