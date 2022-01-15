@@ -61,11 +61,6 @@ const FooterContainer = styled(Container)`
   padding: 40px 40px 40px 18px;
 `;
 
-const Columns = styled(Box)`
-  display: flex;
-  flex-direction: row;
-`;
-
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: #aebcd8;
