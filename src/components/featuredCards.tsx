@@ -1,5 +1,3 @@
-// import { Figure } from "react-bootstrap";
-
 import {ImageListItem, ImageListItemBar} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import styled from "styled-components";

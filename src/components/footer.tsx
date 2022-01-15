@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Box, Container, Grid, useMediaQuery} from "@mui/material";
+import {Container, Grid, useMediaQuery} from "@mui/material";
 import React from "react";
 import {Link} from "react-router-dom";
 
