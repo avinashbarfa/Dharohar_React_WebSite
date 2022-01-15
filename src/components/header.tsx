@@ -131,6 +131,14 @@ const Header = (props: any) => {
                                             Home
                                         </MenuItem>
                                         {textileMenu}
+                                        <MenuItem
+                                            onClick={() => setAnchor(null)}
+                                            component={Link}
+                                            to="/"
+                                            style={{color: '#ffffff', cursor: "pointer", textAlign: 'center', textDecoration: 'none' }}
+                                        >
+                                            Spices
+                                        </MenuItem>
                                     </StyledMenu>
                                 </>
                             ) : (
@@ -141,6 +149,11 @@ const Header = (props: any) => {
                                         Home
                                     </StyledLink>
                                     {textileMenu}
+                                    <StyledLink
+                                        to="/"
+                                    >
+                                        Spices
+                                    </StyledLink>
                                 </div>
                             )}
                         </StyledToolbar>

@@ -29,8 +29,8 @@ const StyledImageListItem = styled(ImageListItem)`
     cursor: pointer;
   }
   .MuiImageListItem-img {
-    width: 300px;
-    height: 300px;
+    width: 300px !important;
+    height: 300px !important;
   }
 
 `

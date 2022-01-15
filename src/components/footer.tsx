@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import {Box, Container, Grid, useMediaQuery} from "@mui/material";
+import React from "react";
+import {Link} from "react-router-dom";
 
 const Footer = () => {
     const isMobile = useMediaQuery('(max-width:800px)');
@@ -21,14 +23,29 @@ const Footer = () => {
                     <section>
                         <h3>Services</h3>
                         <hr />
-                        <span>List of services</span>
+                        <List>
+                            <StyledLink to="/chiffon-gorgette-saree">Chiffon Gorgette Sarees</StyledLink>
+                            <StyledLink
+                                to="/khathan-silk-saree"
+                            >
+                                Khathan Silk Saree
+                            </StyledLink>
+                            <StyledLink
+                                to="/resham-mushrise-sarees"
+                            >
+                                Resham Mushrise Sarees
+                            </StyledLink>
+                        </List>
                     </section>
                 </Grid>
                 <Grid item xs={3}>
                     <section>
                         <h3>Contact Us</h3>
                         <hr />
-                        <span>Text</span>
+                        <List>
+                            <p>Address: <br />SH 11/18 A-D-1 Gayatridham Colony, Chatripur, Varanasi, Uttar Pradesh, India </p>
+                            <p>Contact: +91-8005249997</p>
+                        </List>
                     </section>
                 </Grid>
             </Grid>
@@ -47,6 +64,25 @@ const FooterContainer = styled(Container)`
 const Columns = styled(Box)`
   display: flex;
   flex-direction: row;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #aebcd8;
+  margin: 0 12px;
+  :hover {
+    color: #ffffff;
+  }
+`;
+
+const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
 `;
 
 export default Footer;
